@@ -1,4 +1,5 @@
 package uv.es.g00.cinemaventestingjmock;
+
 import java.util.ArrayList;
 
 /*
@@ -12,8 +13,11 @@ import java.util.ArrayList;
  * @author jopana
  */
 public interface Provincia {
-    
+
     public ArrayList<String> ListarPoblaciones();
-    public void addPoblacion (String poblacion);
-    
+
+    public String[] addPoblacion(String poblacion);
+
+    public String[] getListadoCinesPoblacion(String poblacion);
+
 }

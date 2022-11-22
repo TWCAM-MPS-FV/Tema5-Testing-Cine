@@ -177,14 +177,12 @@ public class Cine {
     // A PARTIR DE AQUI ES TODO DE JMOCK
     /////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<String> ListarPoblacionesConCine(Provincia provincia) {
-        return provincia.ListarPoblaciones();
-
+    public String[] ListarPoblacionesConCine(String poblacion) {
+        return provincia.getListadoCinesPoblacion(poblacion);
     }
 
-    public void addPlobacionConCine(Provincia provincia, String poblacion) {
-
-        provincia.addPoblacion(poblacion);
+    public String[] addPlobacionConCine(Provincia provincia, String poblacion) {
+        return provincia.addPoblacion(poblacion);
     }
 
     public void AsociarActorAPeli(Actor actor, Pelicula pelicula) {

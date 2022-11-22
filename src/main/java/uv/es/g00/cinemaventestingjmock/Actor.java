@@ -1,4 +1,5 @@
 package uv.es.g00.cinemaventestingjmock;
+
 import java.util.ArrayList;
 
 /*
@@ -12,9 +13,16 @@ import java.util.ArrayList;
  * @author jopana
  */
 public interface Actor {
-    
+
     public void Actor();
+
     public void addPelicula(Pelicula pelicula);
+
     public void deletePelicula(Pelicula pelicula);
+
+    public String getNombreActor();
+
+    public void setNombreActor(String actor);
+
     public ArrayList<Pelicula> getPeliculas();
 }

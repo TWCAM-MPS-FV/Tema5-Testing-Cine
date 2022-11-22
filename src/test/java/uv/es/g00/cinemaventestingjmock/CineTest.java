@@ -2,20 +2,28 @@ package uv.es.g00.cinemaventestingjmock;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.mockito.MockedConstruction;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+
+import org.jmock.Expectations;
+import org.jmock.junit5.JUnit5Mockery;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class CineTest {
 
     Cine testCine;
+    Provincia testProvincia;
+    Sesion testSesion;
+    Actor testActor;
+    JUnit5Mockery context = new JUnit5Mockery();
 
     @BeforeEach
     void setUp() throws Exception {
@@ -34,33 +42,52 @@ public class CineTest {
 
     @Test
     @Order(2)
-    void testCalcularPrecioEntradaConTemporada() {
-        Assertions.assertEquals(30, testCine.CalcularPrecioEntrada(10, "miercoles"));
+    public void listarPoblacionesConCine() {
+        final Provincia provincia = context.mock(Provincia.class);
+        String[] listaCines = { "Cine 1", "Cine 2" };
+        context.checking(new Expectations() {
+            {
+                oneOf(provincia).getListadoCinesPoblacion("Ayora");
+                will(returnValue(listaCines));
+            }
+        });
+        Assertions.assertArrayEquals(provincia.getListadoCinesPoblacion("Ayora"), listaCines);
     }
 
     @Test
     @Order(3)
-    void testCalcularPrecioEntradaPorDefecto() {
-        Assertions.assertEquals(50, testCine.CalcularPrecioEntrada(10, ""));
+    public void addPlobacionConCine() {
+        final Provincia provincia = context.mock(Provincia.class);
+        String[] poblacinesCine = { "Ayora: Cine 1" };
+        String poblacion = "Ayora";
+        context.checking(new Expectations() {
+            {
+                oneOf(provincia).addPoblacion(poblacion);
+                will(returnValue(poblacinesCine));
+            }
+        });
+        Assertions.assertArrayEquals(provincia.addPoblacion(poblacion), poblacinesCine);
     }
 
     @Test
     @Order(4)
-    void testPagarEntrada() throws Exception {
-        Assertions.assertEquals(10, testCine.PagarEntrada(10, 20));
+    public void asociarActorAPeli() {
+        final Actor actor = context.mock(Actor.class);
+        final Pelicula pelicula = new Pelicula();
+        context.checking(new Expectations() {
+            {
+                oneOf(actor).getNombreActor();
+                will(returnValue("Actor 1"));
+            }
+        });
+        context.checking(new Expectations() {
+            {
+                oneOf(actor).addPelicula(pelicula);
+            }
+        });
+
+        Assertions.assertNotNull(actor.getNombreActor());
+        testCine.AsociarActorAPeli(actor, pelicula);
     }
 
-    @Test
-    @Order(5)
-    void testPagarEntradaException() throws Exception {
-        String excepcionEsperada = "Falta dinero";
-        String excepcion;
-        try {
-            testCine.PagarEntrada(20, 10);
-            fail();
-        } catch (Exception e) {
-            excepcion = e.getMessage().toString();
-            Assertions.assertTrue(excepcionEsperada.contains(excepcion));
-        }
-    }
 }
