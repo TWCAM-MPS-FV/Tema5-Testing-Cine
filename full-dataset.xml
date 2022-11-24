@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <actor id_actor="1" nombre="Felipe" apellidos="Valencia"/>
+  <actor id_actor="1001" nombre="Actor 1" apellidos="Apellido 1"/>
+  <actor id_actor="1002" nombre="Actor 2" apellidos="Apellido 2"/>
+  <actor id_actor="1003" nombre="Actor 3" apellidos="Apellido 3"/>
+  <cine id_cine="4001" nombre="Cine 1" direccion="Calle 1 Numero 2 Piso 3" id_provincia="3001"/>
+  <cine id_cine="4002" nombre="Cine 2" direccion="Calle 2 Numero 3 Piso 4" id_provincia="3002"/>
+  <cine id_cine="4003" nombre="Cine 3" direccion="Calle 3 Numero 4 Piso 5" id_provincia="3003"/>
+  <pelicula id_pelicula="5001" titulo="Pelicula 1" id_actor="1001"/>
+  <pelicula id_pelicula="5002" titulo="Pelicula 2" id_actor="1002"/>
+  <pelicula id_pelicula="5003" titulo="Pelicula 3" id_actor="1003"/>
+  <poblacion id_poblacion="3001" nombre="Poblacion 1" id_provincia="2001"/>
+  <poblacion id_poblacion="3002" nombre="Poblacion 2" id_provincia="2002"/>
+  <poblacion id_poblacion="3003" nombre="Poblacion 3" id_provincia="2002"/>
+  <provincia id_provincia="2001" nombre="Provincia 1"/>
+  <provincia id_provincia="2002" nombre="Provincia 2"/>
+  <provincia id_provincia="2003" nombre="Provincia 3"/>
+  <sala id_sala="6001" nombre="Sala 1" max_entradas="50" entradas_actuales="10"/>
+  <sala id_sala="6002" nombre="Sala 2" max_entradas="100" entradas_actuales="80"/>
+  <sala id_sala="6003" nombre="Sala 3" max_entradas="100" entradas_actuales="5"/>
+  <sesion id_sesion="7001" hora="19:00" id_sala="6001" id_pelicula="5001" id_cine="4

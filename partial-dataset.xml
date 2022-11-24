@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <users id_cine="4001" nombre="Cine 1" direccion="Calle 1 Numero 2 Piso 3" id_provincia="3001"/>
+  <users id_cine="4002" nombre="Cine 2" direccion="Calle 2 Numero 3 Piso 4" id_provincia="3002"/>
+  <users id_cine="4003" nombre="Cine 3" direccion="Calle 3 Numero 4 Piso 5" id_provincia="3003"/>
+</dataset>
